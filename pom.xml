@@ -35,12 +35,12 @@
     <scope>provided</scope>
 </dependency>
 
+
 <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
 <dependency>
     <groupId>io.cucumber</groupId>
     <artifactId>cucumber-junit</artifactId>
     <version>6.11.0</version>
-    <scope>test</scope>
 </dependency>
 
   
