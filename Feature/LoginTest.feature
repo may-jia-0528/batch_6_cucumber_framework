@@ -6,8 +6,21 @@ Feature: Login Feature
     Given User is on Home Page
     And User click on Login button
     Then User Navigate to Login Page
-    When User Enter User Name and Password
+    When User Enter "<email>" and "<password>"
+    #When User Enter Username and Password
+    #| john.test@gmail.com  | Test123 |
+    #| john.test1@gmail.com  | Test1234 |
     Then User Navigate to Profile Page
     When User Click on Logout button
     Then User Navigate to Login Page
     Then Browser is Quited
+   
+  Examples: 
+  |     email         |        password      |
+  
+  |john.test@gmail.com     |      Test123        |
+  
+  |john.test1@gmail.com     |     Test123          |
+
+  
+  
