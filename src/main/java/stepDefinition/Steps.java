@@ -1,6 +1,7 @@
 package stepDefinition;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
@@ -10,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -20,7 +22,7 @@ public class Steps {
 	
 	@Given("User is on Home Page")
 	public void user_is_on_home_page() {
-		System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get(url);
 	    System.out.println("User is on Home Page");
@@ -39,12 +41,27 @@ public class Steps {
 		
 	}
 
-	@When("User Enter User Name and Password")
-	public void user_enter_user_name_and_password() {
-		driver.findElement(By.name("email")).sendKeys("john.test@gmail.com");
-		driver.findElement(By.name("password")).sendKeys("Test1234");
+	@When("User Enter {string} and {string}")
+	public void user_enter_user_name_and_password(String email, String password) {
+		driver.findElement(By.name("email")).sendKeys(email);
+		driver.findElement(By.name("password")).sendKeys(password);
 		driver.findElement(By.xpath("//input[@type='submit' and @value='Login']")).click();
 		
+	}
+	
+	@When("User Enter Username and Password")
+	public void user_enter_username_and_password(DataTable table) {
+		List<List<String>> datas = table.asLists();
+		List<String> firstRow = datas.get(0);
+		String email = firstRow.get(0);
+		String password = firstRow.get(1);
+		
+		List<String> secondRow = datas.get(1);
+		String email2 = secondRow.get(0);
+		String password2 = secondRow.get(1);
+		driver.findElement(By.name("email")).sendKeys(email);			//ONLY RUNNING THE FIRST SET OF DATA
+		driver.findElement(By.name("password")).sendKeys(password);		//ONLY RUNNING THE FIRST SET OF DATA
+		driver.findElement(By.xpath("//input[@type='submit' and @value='Login']")).click();
 	}
 
 	@Then("User Navigate to Profile Page")
