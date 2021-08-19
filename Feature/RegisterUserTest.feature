@@ -10,4 +10,5 @@ Feature: Register User
 	Then User Navigate to Profile Page
 	When User Click on Logout button
 	Then User Navigate to Login Page
+	Then this don't have step
 	Then Browser is Quited
