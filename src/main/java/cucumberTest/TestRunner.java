@@ -6,7 +6,10 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "Feature/RegisterUserTest.feature", glue = {"stepDefinition"})
+@CucumberOptions(features = "Feature/RegisterUserTest.feature", 
+glue = {"stepDefinition"}, 
+monochrome = true, 
+plugin  = {"pretty", "html:target/cucumber-reports.html"})
 public class TestRunner {
 
 }
