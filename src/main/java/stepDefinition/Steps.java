@@ -18,6 +18,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class Steps {
+	
 	static WebDriver driver;
 	public static String url = "https://boratech.herokuapp.com/";
 	
