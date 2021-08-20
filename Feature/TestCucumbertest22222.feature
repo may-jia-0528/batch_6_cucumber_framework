@@ -1,26 +1,27 @@
-Feature: Cucumber Tags Feature
-		
-		@group1 @smokeTest
-		Scenario: Scenario One
+Feature: Cucumber Tags Feature 222
+	@smokeTest
+  Scenario: Scenario One in featire 222
 		Given This is step on
 		When this is step two
 		Then this is step three
 		
 		
-		@group2
-		Scenario: Scenario 	Two
+		
+		Scenario: Scenario two in featire 222
 		Given This is step on
 		When this is step two
 		Then this is step three
 		
-		@group1
-		Scenario: Scenario Three
+		
+		@smokeTest
+		Scenario: Scenario three in featire 222
 		Given This is step on
 		When this is step two
 		Then this is step three
 		
-		@group2 @smokeTest
-		Scenario: Scenario Four
+		
+		
+		Scenario: Scenario four in featire 222
 		Given This is step on
 		When this is step two
 		Then this is step three
