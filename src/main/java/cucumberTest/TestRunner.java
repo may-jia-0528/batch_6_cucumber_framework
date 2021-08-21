@@ -7,7 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "Feature/TestTaggedHooks.feature",
+@CucumberOptions(features = "Feature/TestHooksExecutionOrder.feature",
 glue = "stepDefinition", monochrome = true,
 plugin = {"pretty", "html:reports/cucumber-report.html" })
 public class TestRunner {
