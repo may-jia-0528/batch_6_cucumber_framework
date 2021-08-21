@@ -5,13 +5,19 @@ Scenario: create user profile
 		Given User is on Home Page
     And User click on Login button
     Then User Navigate to Login Page
-    When User Enter User Name and Password
+    When User Enter Username and Password
+    | borabatch62@gmail.com | Test123 | 
     Then User Navigate to Profile Page
     When User Click on Create Profile Link
     Then User Navigate to Create Your Profile Page
-    When User Enters Profile Infor and Click Submit
+    When User Enters "<status>" "<company>" "<website>" "<location>" "<skills>" "<github>" and Click Submit
     Then Verify Profile Created Message displayed
     When User Click Delete Account
     And User accept the alert
     Then Account is Deleted
     Then Browser is Quited
+    Examples: 
+    | status | company | website | location  | skills                      | github   | 
+    | SDET   |Bora		 | bora.com| VA        | Java, Cucumber, Selenium ...|boragit   |
+    
+    

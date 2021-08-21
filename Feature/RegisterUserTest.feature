@@ -5,10 +5,15 @@ Feature: Register User
 	Given User is on Home Page
 	When User click on Register Link
 	Then User Navigate to Register Page
-	When User enter Personal Info
-	And User Click on Register Button
+	When User enter "<name>" "<email>" "<password>" and click Register button
 	Then User Navigate to Profile Page
 	When User Click on Logout button
 	Then User Navigate to Login Page
-	Then this don't have step
 	Then Browser is Quited
+	
+	Examples: 
+	|   name      |      email          |     password   |
+	|Harry1 Potter|borabatch62@gmail.com| Test123        |
+	
+	
+	
