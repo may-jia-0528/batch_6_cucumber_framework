@@ -20,7 +20,7 @@ Feature: Login Feature
   
   |john.test@gmail.com     |      Test123        |
   
-  |john.test1@gmail.com     |     Test123          |
+  #|john.test1@gmail.com     |     Test123          |
 
   
   
