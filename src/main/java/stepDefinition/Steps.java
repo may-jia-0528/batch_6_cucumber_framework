@@ -12,6 +12,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.bora.pages.HomePage;
+import com.bora.pages.LoginPage;
+
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -21,31 +24,33 @@ public class Steps {
 	static WebDriver driver;
 	public static String url = "https://boratech.herokuapp.com/";
 	
+	HomePage homePage;
+	LoginPage loginPage;
+	
 	@Given("User is on Home Page")
 	public void user_is_on_home_page() {
-		System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get(url);
+		
+		homePage = new HomePage(driver);
+		homePage.isAtHomePage();
 	}
 
 	@Given("User click on Login button")
 	public void user_click_on_login_button() {
-		driver.findElement(By.xpath("//a[text()='Login']")).click();
+		homePage.clickOnLoginLink();
 	}
 
 	@Then("User Navigate to Login Page")
 	public void user_navigate_to_login_page() {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h1[text()='Sign In']")));
-		
+		loginPage = new LoginPage(driver);
+		loginPage.isAtLoginPage();
 	}
 
 	@When("User Enter {string} and {string}")
 	public void user_enter_user_name_and_password(String userName,String password ) {
-		driver.findElement(By.name("email")).sendKeys(userName);
-		driver.findElement(By.name("password")).sendKeys(password);
-		driver.findElement(By.xpath("//input[@type='submit' and @value='Login']")).click();
-		
+		loginPage.login(userName, password);
 	}
 
 	@When("User Enter Username and Password")
@@ -60,9 +65,7 @@ public class Steps {
 		
 		String email2 = secondRow.get(0);
 		String password2 = secondRow.get(1);
-		driver.findElement(By.name("email")).sendKeys(email);
-		driver.findElement(By.name("password")).sendKeys(password);
-		driver.findElement(By.xpath("//input[@type='submit' and @value='Login']")).click();
+		loginPage.login(email, password);
 	}
 	
 	@Then("User Navigate to Profile Page")
