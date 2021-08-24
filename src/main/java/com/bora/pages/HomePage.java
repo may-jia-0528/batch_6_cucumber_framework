@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.bora.helpers.SeleniumHelper;
+
 public class HomePage extends BasePage{
 	
 	private WebDriver driver;
@@ -20,8 +22,8 @@ public class HomePage extends BasePage{
 	private By lnk_Login = By.xpath("//section[@class='landing']//a[text()='Login']");
 	
 	public void isAtHomePage() {
-		WebDriverWait wait = new WebDriverWait(driver, 5);
-		wait.until(ExpectedConditions.presenceOfElementLocated(header_HomePage));
+	SeleniumHelper.waitForElementPresent(driver, 5,header_HomePage );
+	
 	}
 	
 	public void clickLoginLink() {

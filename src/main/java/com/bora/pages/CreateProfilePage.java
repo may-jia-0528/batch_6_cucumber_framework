@@ -6,6 +6,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.bora.helpers.SeleniumHelper;
+
 public class CreateProfilePage extends BasePage {
 
 	private WebDriver driver;
@@ -37,9 +39,8 @@ public class CreateProfilePage extends BasePage {
 	}
 
 	public void isAtCreateProfilePage() {
-		WebDriverWait wait = new WebDriverWait(driver, 5);
-		wait.until(ExpectedConditions.presenceOfElementLocated(header_ProfilePageHeader));
-
+		SeleniumHelper.waitForElementPresent(driver, 5,header_ProfilePageHeader );
+		
 	}
 
 }

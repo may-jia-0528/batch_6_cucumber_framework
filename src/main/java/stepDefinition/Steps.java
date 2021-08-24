@@ -67,7 +67,6 @@ public class Steps {
 		String email = firstRow.get(0);
 		String password = firstRow.get(1);
 		
-		
 		loginPage.login(email, password);
 	}
 	
