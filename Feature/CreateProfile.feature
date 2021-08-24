@@ -6,7 +6,7 @@ Scenario: create user profile
     And User click on Login button
     Then User Navigate to Login Page
     When User Enter Username and Password
-    | borabatch62@gmail.com | Test123 | 
+    | johntest123@gmail.com | Test123 | 
     Then User Navigate to Profile Page
     When User Click on Create Profile Link
     Then User Navigate to Create Your Profile Page
