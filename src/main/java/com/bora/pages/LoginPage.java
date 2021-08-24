@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.bora.helpers.SeleniumHelper;
+
 public class LoginPage extends BasePage{
 	
 	private WebDriver driver;
@@ -20,9 +22,7 @@ public class LoginPage extends BasePage{
 	private By btn_Login = By.xpath("//input[@type='submit' and @value='Login']");
 	
 	public void isAtLoginPage() {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.presenceOfElementLocated(header_LoginPage));
-		
+		SeleniumHelper.waitForElementPresent(driver, 5, header_LoginPage);
 	}
 	
 	public void login(String userName, String password) {

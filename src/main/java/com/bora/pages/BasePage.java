@@ -23,4 +23,5 @@ public class BasePage {
 		driver.findElement(lnk_register).click();
 	}
 	
+	
 }
