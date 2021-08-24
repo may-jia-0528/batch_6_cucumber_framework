@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.bora.helpers.SeleniumHelper;
+
 public class RegisterPage  extends BasePage{
 	
 	private WebDriver driver;
@@ -22,8 +24,8 @@ public class RegisterPage  extends BasePage{
 	private By btn_register = By.xpath("//input[@type='submit' and @value='Register']");
 	
 	public void isAtRegisterPage() {
-		WebDriverWait wait = new WebDriverWait(driver, 5);
-		wait.until(ExpectedConditions.presenceOfElementLocated(header_RegisterPage));
+		SeleniumHelper.waitForElementPresent(driver, 5, header_RegisterPage);
+		
 	
 	}
 	

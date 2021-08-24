@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.bora.pages.HomePage;
 import com.bora.pages.LoginPage;
+import com.bora.helpers.SeleniumHelper;
 import com.bora.pages.CreateProfilePage;
 import com.bora.pages.DashBoardPage;
 import com.bora.pages.RegisterPage;
@@ -143,10 +144,12 @@ public class Steps {
 		loginPage.verifyDeletedAccountMessage();
 	}
 	
-	@When("User accept the alert")
-	public void user_accept_the_alert() {
-		dashBoardPage.acceptDeleteAccountAlert();
-	}
+//	@When("User accept the alert")
+//	public void user_accept_the_alert() {
+//		SeleniumHelper.acceptAlert(driver);
+//	}
+//	
+	
 	
 	
 	

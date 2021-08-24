@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.bora.helpers.SeleniumHelper;
+
 public class DashBoardPage extends BasePage {
 	
 	private WebDriver driver;
@@ -25,22 +27,22 @@ public class DashBoardPage extends BasePage {
 	}
 	
 	public void isAtProfilePage() {
-		WebDriverWait wait = new WebDriverWait(driver, 5);
-		wait.until(ExpectedConditions.presenceOfElementLocated(header_ProfilePage));
+		
+		SeleniumHelper.waitForElementPresent(driver, 5, header_ProfilePage);
+		
 	}
 	
 	public void profileCreatedMessageIsDisplayed() {
-		 WebDriverWait wait = new WebDriverWait(driver, 5);
-		 wait.until(ExpectedConditions.presenceOfElementLocated(profileCreatedMessage));	
+		
+		SeleniumHelper.waitForElementPresent(driver, 5, profileCreatedMessage);
+			
 	}
 	
 	public void deleteAccount() {
 		 driver.findElement(btn_DeleteAccount).click();
 	}
 	
-	public void acceptDeleteAccountAlert() {
-		driver.switchTo().alert().accept();
-	}
+
 	
 	
 
