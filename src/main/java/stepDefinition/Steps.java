@@ -12,12 +12,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.bora.pages.HomePage;
+import com.bora.pages.LoginPage;
+
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class Steps {
+	
 	static WebDriver driver;
 	public static String url = "https://boratech.herokuapp.com/";
 	
@@ -30,14 +34,15 @@ public class Steps {
 
 	@Given("User click on Login button")
 	public void user_click_on_login_button() {
+		HomePage homePage = new HomePage(driver);
+		homePage.
 		driver.findElement(By.xpath("//a[text()='Login']")).click();
 	}
 
 	@Then("User Navigate to Login Page")
 	public void user_navigate_to_login_page() {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h1[text()='Sign In']")));
-		
+     LoginPage loginPage = new LoginPage(driver);
+     loginPage.isAtLoginPage();
 	}
 
 	@When("User Enter {string} and {string}")
@@ -67,13 +72,12 @@ public class Steps {
 	
 	@Then("User Navigate to Profile Page")
 	public void user_navigate_to_profile_page() {
-		WebDriverWait wait = new WebDriverWait(driver, 5);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h1[text()='Dashboard']")));
+		
 	}
 
 	@When("User Click on Logout button")
 	public void user_click_on_logout_button() {
-		driver.findElement(By.xpath("//*[text()='Logout']/parent::a")).click();
+		
 	} 
 	
 	@Then("Browser is Quited")
