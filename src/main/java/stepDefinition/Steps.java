@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.bora.pages.HomePage;
 import com.bora.pages.LoginPage;
 import com.bora.helpers.SeleniumHelper;
+import com.bora.managers.PageObjectManager;
 import com.bora.pages.CreateProfilePage;
 import com.bora.pages.DashBoardPage;
 import com.bora.pages.RegisterPage;
@@ -37,9 +38,10 @@ public class Steps {
 	public void user_is_on_home_page() {
 		System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver");
 		driver = new ChromeDriver();
+		PageObjectManager pageObjectManager = new PageObjectManager(driver);
 		driver.get(url);
 		
-		homePage = new HomePage(driver);
+		homePage = pageObjectManager.getHomePage();
 		homePage.isAtHomePage();
 		
 	}
