@@ -5,14 +5,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.bora.helpers.ConfigReader;
 import com.bora.helpers.SeleniumHelper;
 
 public class LoginPage extends BasePage{
 	
 	private WebDriver driver;
 	
-	public LoginPage(WebDriver driver) {
-		super(driver);
+	public LoginPage(WebDriver driver, ConfigReader configReader) {
+		super(driver, configReader);
 		this.driver = driver; 
 	}
 	
@@ -22,7 +23,7 @@ public class LoginPage extends BasePage{
 	private By btn_Login = By.xpath("//input[@type='submit' and @value='Login']");
 	
 	public void isAtLoginPage() {
-		SeleniumHelper.waitForElementPresent(driver, 5, header_LoginPage);
+		SeleniumHelper.waitForElementPresent(driver, configReader.getsmallWait(), header_LoginPage);
 	}
 	
 	public void login(String userName, String password) {

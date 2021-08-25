@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.bora.helpers.ConfigReader;
 import com.bora.helpers.SeleniumHelper;
 
 public class DashBoardPage extends BasePage {
@@ -12,8 +13,8 @@ public class DashBoardPage extends BasePage {
 	private WebDriver driver;
 	
 	
-	public DashBoardPage(WebDriver driver) {
-		super(driver);
+	public DashBoardPage(WebDriver driver, ConfigReader configReader) {
+		super(driver, configReader);
 		this.driver = driver;
 	}
 	
@@ -28,11 +29,11 @@ public class DashBoardPage extends BasePage {
 	}
 	
 	public void isAtDashBoardPage() {
-		SeleniumHelper.waitForElementPresent(driver, 5, header_ProfilePage);
+		SeleniumHelper.waitForElementPresent(driver, configReader.getsmallWait(), header_ProfilePage);
 	}
 	
 	public void waitForProfileCreatedMessage() {
-		 SeleniumHelper.waitForElementPresent(driver, 5, msg_ProfileCreated);
+		 SeleniumHelper.waitForElementPresent(driver, configReader.getsmallWait(), msg_ProfileCreated);
 	}
 	
 	public void deleteMyAccount() {

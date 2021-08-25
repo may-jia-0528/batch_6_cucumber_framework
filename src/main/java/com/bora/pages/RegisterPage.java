@@ -5,14 +5,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.bora.helpers.ConfigReader;
 import com.bora.helpers.SeleniumHelper;
 
 public class RegisterPage  extends BasePage{
 	
 	private WebDriver driver;
 	
-	public RegisterPage(WebDriver driver) {
-		super(driver);
+	public RegisterPage(WebDriver driver, ConfigReader configReader) {
+		super(driver, configReader);
 		this.driver = driver;
 	}
 	
@@ -24,7 +25,7 @@ public class RegisterPage  extends BasePage{
 	private By btn_register = By.xpath("//input[@type='submit' and @value='Register']");
 	
 	public void isAtRegisterPage() {
-		SeleniumHelper.waitForElementPresent(driver, 5, header_RegisterPage);
+		SeleniumHelper.waitForElementPresent(driver, configReader.getsmallWait(), header_RegisterPage);
 	}
 	
 	public void registerUser(String name, String email, String password) {
