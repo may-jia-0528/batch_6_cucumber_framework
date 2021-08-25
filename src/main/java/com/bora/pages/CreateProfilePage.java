@@ -6,14 +6,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.bora.helpers.ConfigReader;
 import com.bora.helpers.SeleniumHelper;
 
 public class CreateProfilePage extends BasePage {
 
 	private WebDriver driver;
 
-	public CreateProfilePage(WebDriver driver) {
-		super(driver);
+	public CreateProfilePage(WebDriver driver,ConfigReader configReader) {
+		super(driver, configReader);
 		this.driver = driver;
 	}
 

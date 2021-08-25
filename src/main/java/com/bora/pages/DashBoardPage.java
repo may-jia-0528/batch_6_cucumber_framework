@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.bora.helpers.ConfigReader;
 import com.bora.helpers.SeleniumHelper;
 
 public class DashBoardPage extends BasePage {
@@ -12,8 +13,8 @@ public class DashBoardPage extends BasePage {
 	private WebDriver driver;
 	
 	
-	public DashBoardPage(WebDriver driver) {
-		super(driver);
+	public DashBoardPage(WebDriver driver,ConfigReader configReader) {
+		super(driver,configReader);
 		this.driver = driver;
 	}
 	

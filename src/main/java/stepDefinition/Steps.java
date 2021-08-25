@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.bora.pages.HomePage;
 import com.bora.pages.LoginPage;
+import com.bora.helpers.ConfigReader;
 import com.bora.helpers.SeleniumHelper;
 import com.bora.managers.PageObjectManager;
 import com.bora.pages.CreateProfilePage;
@@ -26,18 +27,19 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class Steps {
-	static WebDriver driver;
-	public static String url = "https://boratech.herokuapp.com/";
+	static WebDriver driver;	
 	
 	PageObjectManager pageObjectManager;
+	ConfigReader configReader;
 	
 	@Given("User is on Home Page")
 	public void user_is_on_home_page() {
+		configReader=new ConfigReader();
 		System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver");
 		driver = new ChromeDriver();
-		 pageObjectManager = new PageObjectManager(driver);
+		 pageObjectManager = new PageObjectManager(driver, configReader);
 		
-		driver.get(url);
+		driver.get(configReader.getUrl());
 		pageObjectManager.getHomePage().isAtHomePage();
 		
 	}

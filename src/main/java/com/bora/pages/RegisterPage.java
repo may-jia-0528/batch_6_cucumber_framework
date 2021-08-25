@@ -5,14 +5,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.bora.helpers.ConfigReader;
 import com.bora.helpers.SeleniumHelper;
 
-public class RegisterPage  extends BasePage{
+public class RegisterPage extends BasePage{
 	
 	private WebDriver driver;
 	
-	public RegisterPage(WebDriver driver) {
-		super(driver);
+	public RegisterPage(WebDriver driver,ConfigReader configReader) {
+		super(driver, configReader);
 		this.driver = driver;
 	}
 	
