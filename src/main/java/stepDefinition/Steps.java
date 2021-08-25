@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.bora.pages.HomePage;
 import com.bora.pages.LoginPage;
 import com.bora.helpers.SeleniumHelper;
+import com.bora.managers.PageObjectManager;
 import com.bora.pages.CreateProfilePage;
 import com.bora.pages.DashBoardPage;
 import com.bora.pages.RegisterPage;
@@ -28,36 +29,33 @@ public class Steps {
 	static WebDriver driver;
 	public static String url = "https://boratech.herokuapp.com/";
 	
-	HomePage homePage;
-	LoginPage loginPage;
-	DashBoardPage dashBoardPage;
-	RegisterPage registerPage;
-	CreateProfilePage createProfilePage;
+	PageObjectManager pageObjectManager;
+	
 	@Given("User is on Home Page")
 	public void user_is_on_home_page() {
 		System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver");
 		driver = new ChromeDriver();
-		driver.get(url);
+		 pageObjectManager = new PageObjectManager(driver);
 		
-		homePage = new HomePage(driver);
-		homePage.isAtHomePage();
+		driver.get(url);
+		pageObjectManager.getHomePage().isAtHomePage();
 		
 	}
 
 	@Given("User click on Login button")
 	public void user_click_on_login_button() {
-		homePage.clickLoginLink();
+		pageObjectManager.getHomePage().clickLoginLink();
 	}
 
 	@Then("User Navigate to Login Page")
 	public void user_navigate_to_login_page() {
-		loginPage = new LoginPage(driver);
-		loginPage.isAtLoginPage();
+
+		pageObjectManager.getLoginPage().isAtLoginPage();
 	}
 
 	@When("User Enter {string} and {string}")
 	public void user_enter_user_name_and_password(String userName,String password ) {
-		loginPage.login(userName, password);
+		pageObjectManager.getLoginPage().login(userName, password);
 	}
 
 	@When("User Enter Username and Password")
@@ -69,18 +67,18 @@ public class Steps {
 		String password = firstRow.get(1);
 		
 		
-		loginPage.login(email, password);
+		pageObjectManager.getLoginPage().login(email, password);
 	}
 	
 	@Then("User Navigate to Profile Page")
 	public void user_navigate_to_profile_page() {
-		dashBoardPage = new DashBoardPage(driver);
-		dashBoardPage.isAtProfilePage();
+		
+		pageObjectManager.getDashBoardPage().isAtDashBoardPage();
 	}
 
 	@When("User Click on Logout button")
 	public void user_click_on_logout_button() {
-		homePage.logout();
+		pageObjectManager.getHomePage().logout();
 	} 
 	
 	@Then("Browser is Quited")
@@ -91,21 +89,20 @@ public class Steps {
 	
 	@When("User click on Register Link")
 	public void user_click_on_register_link() {
-		homePage.clickRegisterLink();
+		pageObjectManager.getHomePage().clickRegisterLink();
 	}
 	
 	@Then("User Navigate to Register Page")
 	public void user_navigate_to_register_page() {
 		
-		registerPage = new RegisterPage(driver);
-		registerPage.isAtRegisterPage();
+		pageObjectManager.getRegisterPage().isAtRegisterPage();
 	}
 	
 	
 
 	@When("User enter {string} {string} {string} and click Register button")
 	public void user_enter_and(String name, String email, String password) {
-		registerPage.registerUser(name, email, password);
+		pageObjectManager.getRegisterPage().registerUser(name, email, password);
 	}
 	
 	
@@ -113,34 +110,32 @@ public class Steps {
 	
 	@When("User Click on Create Profile Link")
 	public void user_click_on_create_profile_link() {
-		dashBoardPage = new DashBoardPage(driver);
-		dashBoardPage.clickCreateProfileButton();
+		pageObjectManager.getDashBoardPage().clickCreateProfileButton();
 	}
 
 	@Then("User Navigate to Create Your Profile Page")
 	public void user_navigate_to_create_your_profile_page() {
-	   createProfilePage = new CreateProfilePage(driver);
-	   createProfilePage.isAtCreateProfilePage();
+	  pageObjectManager.getCreateProfilePage().isAtCreateProfilePage();
 	}
 
 	@When("User Enters {string} {string} {string} {string} {string} {string} and Click Submit")
 	public void user_enters_profile_infor_and_click_submit(String status, String company, String website, String location, String skills, String github) {
-		createProfilePage.createProfile(status, company, website, location, skills, github);
+		pageObjectManager.getCreateProfilePage().createProfile(status, company, website, location, skills, github);
 	}
 
 	@Then("Verify Profile Created Message displayed")
 	public void verify_profile_created_message_displayed() {
-	   dashBoardPage.waitForProfileCreatedMessage();
+	   pageObjectManager.getDashBoardPage().waitForProfileCreatedMessage();
 	}
 	
 	@When("User Click Delete Account")
 	public void user_click_delete_account() {
-	    dashBoardPage.deleteMyAccount();
+	    pageObjectManager.getDashBoardPage().deleteMyAccount();
 	}
 
 	@Then("Account is Deleted")
 	public void account_is_deleted() {
-		dashBoardPage.waitForAccountDeletedMessage();
+		pageObjectManager.getDashBoardPage().waitForAccountDeletedMessage();
 	}
 	
 	@When("User accept the alert")
