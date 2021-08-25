@@ -3,11 +3,18 @@ package com.bora.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import com.bora.helpers.ConfigReader;
+
+import net.bytebuddy.implementation.bind.annotation.Super;
+
 public class BasePage {
 	
 	private WebDriver driver;
+	ConfigReader confiReader;
 	
-	public BasePage(WebDriver driver) {
+	
+	public BasePage(WebDriver driver, ConfigReader confiReader) {
+		super(driver, configReader);
 		this.driver = driver;
 	}
 	
