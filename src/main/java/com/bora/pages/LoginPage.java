@@ -32,4 +32,72 @@ public class LoginPage extends BasePage{
 		
 	}
 	
+	public void validateEmail(String userName) {
+
+	    String email = userName;
+	    boolean isEmailValid = true;
+	    boolean[] conditions = new boolean[9];
+	    String[] reason;
+
+	        reason = new String[9];
+	        isEmailValid = true;
+	        
+	        conditions[0] = email.contains("@");
+	        if (!conditions[0])
+	            reason[0] = "Email must contain \"@\"";
+	        conditions[1] = email.contains(".");
+	        if (!conditions[1])
+	            reason[1] = "Email must contain \".\"";
+	        conditions[2] = (Math.abs(email.indexOf("@") - email.indexOf(".")) != 1);
+	        if (!conditions[2])
+	            reason[2] = "\"@\" and \".\" can't be together";
+	        conditions[3] = !email.startsWith("@");
+	        if (!conditions[3])
+	            reason[3] = "Email can not start with a \"@\"";
+	        conditions[4] = !email.startsWith(".");
+	        if (!conditions[4])
+	            reason[4] = "Email can not start with a \".\"";
+	        conditions[5] = !email.endsWith(".");
+	        if (!conditions[5])
+	            reason[5] = "Email can not end with a \".\"";
+	        conditions[6] = !email.endsWith("@");
+	        if (!conditions[6])
+	            reason[6] = "Email can not end with a \"@\"";
+	        conditions[7] = (email.split("@")[0].length() >= 6);
+	        if (!conditions[7])
+	            reason[7] = "User name has to be at least 6 characters";
+	        conditions[8] = false;
+	        for (int i = 0; i < email.length(); i++) {
+	            char currentChar = email.charAt(i);
+	            if (currentChar == '.' && email.indexOf("@") < i) {
+	                conditions[8] = true;
+	                break;
+	            }
+	        }
+	        if (!conditions[8])
+	            reason[8] = "\"@\" appeared after the \".\"";
+
+	        for (boolean condition : conditions) {
+	            isEmailValid = isEmailValid && condition;
+	        }
+
+	        if (isEmailValid) {
+	            break;
+	        }
+
+	        if (!isEmailValid) {
+	            System.out.println("Invalid email");
+	            System.out.println("\tReasons:");
+	            for (String r : reason) {
+	                if (r != null) {
+	                    System.out.println("\t" + r);
+	                }
+	            }
+	        }
+	    }
+
+	
+	
+	
+	
 }
