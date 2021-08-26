@@ -13,8 +13,8 @@ public class DashBoardPage extends BasePage {
 	private WebDriver driver;
 	
 	
-	public DashBoardPage(WebDriver driver, ConfigReader configReader) {
-		super(driver, configReader);
+	public DashBoardPage(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
 	
@@ -29,11 +29,11 @@ public class DashBoardPage extends BasePage {
 	}
 	
 	public void isAtDashBoardPage() {
-		SeleniumHelper.waitForElementPresent(driver, configReader.getsmallWait(), header_ProfilePage);
+		SeleniumHelper.waitForElementPresent(driver, ConfigReader.getInstance().getsmallWait(), header_ProfilePage);
 	}
 	
 	public void waitForProfileCreatedMessage() {
-		 SeleniumHelper.waitForElementPresent(driver, configReader.getsmallWait(), msg_ProfileCreated);
+		 SeleniumHelper.waitForElementPresent(driver, ConfigReader.getInstance().getsmallWait(), msg_ProfileCreated);
 	}
 	
 	public void deleteMyAccount() {

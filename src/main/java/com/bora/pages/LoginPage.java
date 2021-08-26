@@ -12,8 +12,8 @@ public class LoginPage extends BasePage{
 	
 	private WebDriver driver;
 	
-	public LoginPage(WebDriver driver, ConfigReader configReader) {
-		super(driver, configReader);
+	public LoginPage(WebDriver driver) {
+		super(driver);
 		this.driver = driver; 
 	}
 	
@@ -23,7 +23,7 @@ public class LoginPage extends BasePage{
 	private By btn_Login = By.xpath("//input[@type='submit' and @value='Login']");
 	
 	public void isAtLoginPage() {
-		SeleniumHelper.waitForElementPresent(driver, configReader.getsmallWait(), header_LoginPage);
+		SeleniumHelper.waitForElementPresent(driver, ConfigReader.getInstance().getsmallWait(), header_LoginPage);
 	}
 	
 	public void login(String userName, String password) {

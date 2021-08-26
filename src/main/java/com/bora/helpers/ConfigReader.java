@@ -8,9 +8,18 @@ import java.util.Properties;
 public class ConfigReader {
 	
 	private final String propertyFilePath = "src/test/resources/com/bora/config/Config.properties";
+	private static ConfigReader configReader = new ConfigReader();
 	private Properties properties;
 	
-	public ConfigReader(){
+	private ConfigReader() {
+		
+	}
+	
+	public static ConfigReader getInstance() {
+		return configReader;
+	}
+	
+	public void loadProperties(){
 		try {
 			FileInputStream stream = new FileInputStream(propertyFilePath);
 			properties = new Properties();
@@ -58,7 +67,7 @@ public class ConfigReader {
 	public long getsmallWait() {
 		String smallWait = properties.getProperty("smallWait");
 		if(smallWait!=null) {
-			long time = Long.getLong(smallWait);
+			long time = Long.parseLong(smallWait);
 			return time;
 		}
 		else {
