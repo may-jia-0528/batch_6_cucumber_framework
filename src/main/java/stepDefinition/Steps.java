@@ -1,26 +1,12 @@
 package stepDefinition;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Random;
-import java.util.Set;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.bora.pages.HomePage;
-import com.bora.pages.LoginPage;
 import com.bora.helpers.ConfigReader;
 import com.bora.helpers.SeleniumHelper;
 import com.bora.managers.PageObjectManager;
-import com.bora.pages.CreateProfilePage;
-import com.bora.pages.DashBoardPage;
-import com.bora.pages.RegisterPage;
-
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -35,7 +21,7 @@ public class Steps {
 	@Given("User is on Home Page")
 	public void user_is_on_home_page() {
 		configReader = new ConfigReader();
-		System.setProperty("webdriver.chrome.driver", configReader.getDriverPath());
+		System.setProperty("webdriver.chrome.driver", ConfigReader.getInstance().getDriverPath());
 		driver = new ChromeDriver();
 		 pageObjectManager = new PageObjectManager(driver, configReader);
 		 

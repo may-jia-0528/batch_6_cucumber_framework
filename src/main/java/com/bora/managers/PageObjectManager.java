@@ -18,9 +18,8 @@ public class PageObjectManager {
 	private LoginPage loginPage;
 	private RegisterPage registerPage;
 	private ConfigReader configReader;
-	public PageObjectManager(WebDriver driver, ConfigReader configReader) {
+	public PageObjectManager(WebDriver driver) {
 		this.driver = driver;
-		this.configReader = configReader;
 	}
 	
 	public HomePage getHomePage() {

@@ -1,7 +1,6 @@
 package com.bora.helpers;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -9,8 +8,9 @@ public class ConfigReader {
 	
 	private final String propertyFilePath = "src/test/resources/com/bora/config/Config.properties";
 	private Properties properties;
+	private static ConfigReader configReader = new ConfigReader();
 	
-	public ConfigReader(){
+	private ConfigReader() {
 		try {
 			FileInputStream stream = new FileInputStream(propertyFilePath);
 			properties = new Properties();
@@ -88,5 +88,8 @@ public class ConfigReader {
 		}
 	}
 	
+	public static ConfigReader getInstance() {
+		return configReader;
+	}
 	
 }
