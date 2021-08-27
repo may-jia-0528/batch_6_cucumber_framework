@@ -17,34 +17,32 @@ public class PageObjectManager {
 	private DashBoardPage dashBoardPage;
 	private LoginPage loginPage;
 	private RegisterPage registerPage;
-	private ConfigReader configReader;
-	public PageObjectManager(WebDriver driver, ConfigReader configReader) {
+	public PageObjectManager(WebDriver driver) {
 		this.driver = driver;
-		this.configReader = configReader;
 	}
 	
 	public HomePage getHomePage() {
-		return (homePage==null) ? homePage = new HomePage(driver, configReader) : homePage;
+		return (homePage==null) ? homePage = new HomePage(driver) : homePage;
 	}
 	
 	public CreateProfilePage getCreateProfilePage() {
 		if(createProfilePage==null) {
-			createProfilePage = new CreateProfilePage(driver, configReader);
+			createProfilePage = new CreateProfilePage(driver);
 		}
 		
 		return createProfilePage;
 	}
 	
 	public LoginPage getLoginPage() {
-		return (loginPage==null)? loginPage = new LoginPage(driver, configReader) : loginPage;
+		return (loginPage==null)? loginPage = new LoginPage(driver) : loginPage;
 	}
 	
 	public DashBoardPage getDashBoardPage() {
-		return (dashBoardPage==null) ? dashBoardPage = new DashBoardPage(driver, configReader) : dashBoardPage;
+		return (dashBoardPage==null) ? dashBoardPage = new DashBoardPage(driver) : dashBoardPage;
 	}
 	
 	public RegisterPage getRegisterPage() {
-		return (registerPage == null) ? registerPage = new RegisterPage(driver,configReader) : registerPage;
+		return (registerPage == null) ? registerPage = new RegisterPage(driver) : registerPage;
 	}
 
 }

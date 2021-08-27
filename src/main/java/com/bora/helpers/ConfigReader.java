@@ -10,7 +10,9 @@ public class ConfigReader {
 	private final String propertyFilePath = "src/test/resources/com/bora/config/Config.properties";
 	private Properties properties;
 	
-	public ConfigReader(){
+	private static  ConfigReader configReader = new ConfigReader();
+	
+	private ConfigReader() {
 		try {
 			FileInputStream stream = new FileInputStream(propertyFilePath);
 			properties = new Properties();
@@ -20,9 +22,13 @@ public class ConfigReader {
 			e.printStackTrace();
 			throw new RuntimeException("Property file path not found!!");
 		}
-		
-		
 	}
+	
+	public static ConfigReader getInstance() {
+		return configReader;
+	}
+	
+
 	
 	public String getUrl() {
 		String url = properties.getProperty("url");
@@ -47,7 +53,7 @@ public class ConfigReader {
 	public long getImplicityWaitTime() {
 		String implicityWaitTime = properties.getProperty("implicityWait");
 		if(implicityWaitTime!=null) {
-			long time = Long.getLong(implicityWaitTime);
+			long time = Long.parseLong(implicityWaitTime);
 			return time;
 		}
 		else {
@@ -58,7 +64,7 @@ public class ConfigReader {
 	public long getsmallWait() {
 		String smallWait = properties.getProperty("smallWait");
 		if(smallWait!=null) {
-			long time = Long.getLong(smallWait);
+			long time = Long.parseLong(smallWait);
 			return time;
 		}
 		else {
@@ -69,7 +75,7 @@ public class ConfigReader {
 	public long getMediumWait() {
 		String mediumWait = properties.getProperty("mediumWait");
 		if(mediumWait!=null) {
-			long time = Long.getLong(mediumWait);
+			long time = Long.parseLong(mediumWait);
 			return time;
 		}
 		else {
@@ -80,7 +86,7 @@ public class ConfigReader {
 	public long getLargeWait() {
 		String largeWait = properties.getProperty("largeWait");
 		if(largeWait!=null) {
-			long time = Long.getLong(largeWait);
+			long time = Long.parseLong(largeWait);
 			return time;
 		}
 		else {
