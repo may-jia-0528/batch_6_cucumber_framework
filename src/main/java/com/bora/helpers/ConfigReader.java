@@ -5,7 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-import javax.management.RuntimeMBeanException;
+
 
 public class ConfigReader {
 	private final String propertyFilePath="src/test/resources/com/bora/config/Config.properties";
@@ -52,7 +52,7 @@ public class ConfigReader {
 	public long getsmallWait() {
 		String smallWait = properties.getProperty("smallWait");
 		if(smallWait!=null) {
-			long time = Long.getLong(smallWait);
+			long time = Long.parseLong(smallWait);
 			return time;
 		}
 		else {
@@ -63,7 +63,7 @@ public class ConfigReader {
 	public long getMediumWait() {
 		String mediumWait = properties.getProperty("mediumWait");
 		if(mediumWait!=null) {
-			long time = Long.getLong(mediumWait);
+			long time = Long.parseLong(mediumWait);
 			return time;
 		}
 		else {

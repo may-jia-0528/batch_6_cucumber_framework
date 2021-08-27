@@ -42,7 +42,7 @@ public class Hooks {
 //	
 //	@After("@First")
 //	public void afterScenarioForFirst() {
-//		System.out.println("======== Onlu after @First Scenarios ========");
+//		System.out.println("======== Only after @First Scenarios ========");
 //	}
 //	
 //	@Before("@Second")
