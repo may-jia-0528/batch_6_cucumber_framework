@@ -47,7 +47,7 @@ public class ConfigReader {
 	public long getImplicityWaitTime() {
 		String implicityWaitTime = properties.getProperty("implicityWait");
 		if(implicityWaitTime!=null) {
-			long time = Long.getLong(implicityWaitTime);
+			long time = Long.parseLong(implicityWaitTime);
 			return time;
 		}
 		else {
@@ -58,7 +58,7 @@ public class ConfigReader {
 	public long getsmallWait() {
 		String smallWait = properties.getProperty("smallWait");
 		if(smallWait!=null) {
-			long time = Long.getLong(smallWait);
+			long time = Long.parseLong(smallWait);
 			return time;
 		}
 		else {
@@ -69,7 +69,7 @@ public class ConfigReader {
 	public long getMediumWait() {
 		String mediumWait = properties.getProperty("mediumWait");
 		if(mediumWait!=null) {
-			long time = Long.getLong(mediumWait);
+			long time = Long.parseLong(mediumWait);
 			return time;
 		}
 		else {
@@ -80,7 +80,7 @@ public class ConfigReader {
 	public long getLargeWait() {
 		String largeWait = properties.getProperty("largeWait");
 		if(largeWait!=null) {
-			long time = Long.getLong(largeWait);
+			long time = Long.parseLong(largeWait);
 			return time;
 		}
 		else {
