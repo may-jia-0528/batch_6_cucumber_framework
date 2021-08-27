@@ -13,8 +13,8 @@ public class CreateProfilePage extends BasePage {
 
 	private WebDriver driver;
 
-	public CreateProfilePage(WebDriver driver, ConfigReader configReader) {
-		super(driver, configReader);
+	public CreateProfilePage(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
 
@@ -40,7 +40,7 @@ public class CreateProfilePage extends BasePage {
 	}
 
 	public void isAtCreateProfilePage() {
-		SeleniumHelper.waitForElementPresent(driver, configReader.getsmallWait(), header_ProfilePageHeader);
+		SeleniumHelper.waitForElementPresent(driver, ConfigReader.getInstance().getsmallWait(), header_ProfilePageHeader);
 	}
 
 }

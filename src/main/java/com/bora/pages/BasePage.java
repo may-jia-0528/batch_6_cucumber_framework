@@ -8,10 +8,8 @@ import com.bora.helpers.ConfigReader;
 public class BasePage {
 	
 	private WebDriver driver;
-	ConfigReader configReader;
-	public BasePage(WebDriver driver, ConfigReader configReader) {
+	public BasePage(WebDriver driver) {
 		this.driver = driver;
-		this.configReader = configReader;
 	}
 	
 	public By lnk_logout = By.xpath("//*[text()='Logout']/parent::a");

@@ -12,8 +12,8 @@ public class HomePage extends BasePage{
 	
 	private WebDriver driver;
 	
-	public HomePage(WebDriver driver, ConfigReader configReader) {
-		super(driver, configReader);
+	public HomePage(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
 	
@@ -23,7 +23,7 @@ public class HomePage extends BasePage{
 	private By lnk_Login = By.xpath("//section[@class='landing']//a[text()='Login']");
 	
 	public void isAtHomePage() {
-		SeleniumHelper.waitForElementPresent(driver, configReader.getsmallWait(), header_HomePage);
+		SeleniumHelper.waitForElementPresent(driver, ConfigReader.getInstance().getsmallWait(), header_HomePage);
 	}
 	
 	public void clickLoginLink() {
