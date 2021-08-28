@@ -1,5 +1,7 @@
 package inClass.Java.task;
 
+import java.util.Arrays;
+
 public class InClass_Combination {
 
 	/**
@@ -24,8 +26,9 @@ public class InClass_Combination {
 	 */
 
 	public static void main(String[] args) {
-		
-		absoluteNumber(-123245);
+		int [] arr = { 1, 2, 3 };
+		arrayNumber(arr);
+	
 		System.out.println(sumNumberRange(7, 11));
 		System.out.println(specialEven(259));
 		
@@ -38,37 +41,28 @@ public class InClass_Combination {
 	}
 
 //1.
-	private static void absoluteNumber(int a) {
-		int value = Math.abs(a);
-		String s = String.valueOf(value);
-		if ((s.contains("237") || s.contains("345") || s.contains("13"))) {
-			System.out.println("True");
-
-		} else {
-			System.out.println("false");
-
-		}
-
-	}
+//	private static void absoluteNumber(int a) {
+//		int value = Math.abs(a);
+//		return (value>=237+13 && value<=-13)||(value>=345-13 &&value<=345+13);
+//		
+//		
+//	}
 
 	// 3.
 	private static int sumNumberRange(int x, int y) {
 		int sum = x + y;
 		return (sum >= 8 && sum <= 17) ? 20 : sum;
-	
+	}
 
-	private static void arrayNumber(int[] a, int b) {
-		int[] arr = { 1, 2, 3 };
-		int[]n = new int[a.length];
+	public static int[] arrayNumber(int[] arr) {
+	
+		int[] n = new int[arr.length];
 		System.out.print("Original arry:");
-		for (int j = 0; j < arr.length; j++) {
-			System.out.println(arr[j]);
+		for (int j = 0; j <=arr.length-2; j++) {// rotate means only one index to rotate---> one time to every index. 
+			n[j]=arr[j+1];
 		}
-		
-
+		return n;
 	}
 
 	
-	}
-
 }

@@ -44,7 +44,7 @@ public class InClass_String {
 	public static void middleThreeChars(String str) {
 
 		int len = str.length() / 2;
-		if (str.length() / 2 != 0) {
+		if (str.length() % 2 != 0) {
 			System.out.println(str.substring(len - 1, len + 2));
 
 		}
