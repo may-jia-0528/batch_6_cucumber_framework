@@ -1,26 +1,11 @@
 package stepDefinition;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Random;
-import java.util.Set;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.bora.pages.HomePage;
-import com.bora.pages.LoginPage;
 import com.bora.helpers.ConfigReader;
 import com.bora.helpers.SeleniumHelper;
 import com.bora.managers.PageObjectManager;
-import com.bora.pages.CreateProfilePage;
-import com.bora.pages.DashBoardPage;
-import com.bora.pages.RegisterPage;
-
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
