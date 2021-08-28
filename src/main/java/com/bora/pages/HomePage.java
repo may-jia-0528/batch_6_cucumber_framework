@@ -23,6 +23,7 @@ public class HomePage extends BasePage{
 	private By lnk_Login = By.xpath("//section[@class='landing']//a[text()='Login']");
 	
 	public void isAtHomePage() {
+		System.out.println("****driver: "+driver.toString());
 		SeleniumHelper.waitForElementPresent(driver, ConfigReader.getInstance().getsmallWait(), header_HomePage);
 	}
 	
