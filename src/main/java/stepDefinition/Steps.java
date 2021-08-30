@@ -33,9 +33,12 @@ public class Steps {
 	
 	@Given("User is on Home Page")
 	public void user_is_on_home_page() {
+		
 	
-		System.setProperty("webdriver.chrome.driver", ConfigReader.getInstance().getDriverPath());
-		driver = new ChromeDriver();
+//		System.setProperty("webdriver.chrome.driver", ConfigReader.getInstance().getDriverPath());
+//		driver = new ChromeDriver();
+		
+		driver=driverManager.getDriver();
 		 pageObjectManager = new PageObjectManager(driver);
 		 
 		//driver.get(configReader.getUrl());
