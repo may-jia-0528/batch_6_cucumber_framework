@@ -7,7 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.bora.enums.BrowserType;
 import com.bora.enums.EnvironmentType;
-import com.bora.helpers.ConfigReader;
+
 
 
 public class WebDriverManager {
